@@ -6,9 +6,9 @@
 #>
 
 Param (
-    [string]$user,
-    [string]$password,
-    [string]$sqlserver
+    [string]$user="adminuser",
+    [string]$password="4WpaQPtYKEK8qg6Yc2j3",
+    [string]$sqlserver="sql-musicstore-k6ar2ml5pmnyq.database.windows.net"
 )
 
 # firewall
@@ -26,7 +26,7 @@ Install-WindowsFeature web-server -IncludeManagementTools
 Invoke-WebRequest https://go.microsoft.com/fwlink/?linkid=848827 -outfile c:\temp\dotnet-dev-win-x64.1.0.4.exe
 Start-Process c:\temp\dotnet-dev-win-x64.1.0.4.exe -ArgumentList '/quiet' -Wait
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-Invoke-WebRequest https://go.microsoft.com/fwlink/?LinkId=817246 -outfile c:\temp\DotNetCore.WindowsHosting.exe
+Invoke-WebRequest https://github.com/Husky-Devel/indeworkexpirence/releases/download/wewe/DotNetCore.1.0.0-WindowsHosting.exe -outfile c:\temp\DotNetCore.WindowsHosting.exe
 Start-Process c:\temp\DotNetCore.WindowsHosting.exe -ArgumentList '/quiet' -Wait
 
 # download / config music app
